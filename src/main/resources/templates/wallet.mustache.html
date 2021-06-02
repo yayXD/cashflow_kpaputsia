@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Cashflow</title>
+		<meta name="description=" content="Cashflow">
+		<style>
+        		    * {
+                    	padding: 0;
+                    	margin: 0;
+                    }
+
+                    img {
+                    	width: 100%;
+                    	height: auto;
+                    }
+
+                    h1 {
+                    	font-size: 50px;
+                    }
+
+                    header {
+                    	background: #24292E;
+                    	color: white;
+
+                    	min-height: 100px;
+                    	display: flex;
+                    	align-items: center;
+                    	padding: 10px 15px;
+                    }
+                    header h1 a{
+                    	text-decoration: none !important;
+                    	color: white !important;
+                    }
+                    header .logNreg {
+                    	margin-left: auto;
+                    }
+                    header .logNreg input {
+                    	margin: 5px;
+                    	padding: 2px;
+                    	background: white;
+                    	border-radius: 5px;
+                    	text-decoration: none !important;
+                    }
+
+                    .CreateWalet {
+                    	min-height: 800px;
+                    	display: flex;
+                    	align-items: center;
+                    	justify-content: center;
+                    }
+                    .CreateWalet .createWWindow {
+                    	min-width: 300px;
+                    	padding: 10px 30px;
+
+                    	border: 1px black solid;
+                    	border-radius: 15px;
+
+                    	text-align: center;
+                    }
+                    .CreateWalet .createWWindow .zagCreate {
+                    	font-size: 30px;
+                    	margin: 0;
+                    	margin-bottom: 30px;
+                    }
+                    .CreateWalet .createWWindow p {
+                    	margin-bottom: 5px;
+                    }
+                    .CreateWalet .createWWindow .inputSize {
+                    	width: 97%;
+                    	height: 15px;
+                    	padding: 2px;
+                    	margin-bottom: 15px;
+                    }
+                    .CreateWalet .createWWindow .curren {
+                    	margin-bottom: 10px;
+                    }
+                    .CreateWalet .createWWindow .curren #currency1 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense {
+                    	margin-bottom: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens1 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens2 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens3 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens4 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens5 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow .expense #expens6 {
+                    	margin-left: 10px;
+                    }
+                    .CreateWalet .createWWindow #loadIconImg {
+                    	width: 97%;
+                    	height: 20px;
+                    	padding: 2px;
+                    	margin-bottom: 15px;
+                    }
+                    .CreateWalet .createWWindow button {
+                    	width: 100%;
+                    	height: 30px;
+                    	margin-top: 30px;
+                    	margin-bottom: 10px;
+                    }
+
+                    footer {
+                    	background: #24292E;
+                    	color: white;
+
+                    	min-height: 100px;
+                    	display: flex;
+                    	align-items: center;
+                    	justify-content: center;
+                    }
+        		</style>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/greeting">Cashflow</a></h1>
+			<div class="logNreg">
+				<form action="/logout" method="post">
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+					<input type="submit" value="Выйти"/>
+				</form>
+			</div>
+		</header>
+		
+		<div class="CreateWalet">
+			<div class="createWWindow">
+				<p class="zagCreate">Создание кошелька</p>
+				
+				<form method="post" id="myForm">
+					<input class="inputSize" type="text" name="name" placeholder="Введите имя кошелька"/>
+					<p>Выберите валюту</p>
+					<div class="curren">
+						<input id="currency0" type="radio"  name="currency" value="gryvna" checked>
+						<label for="currency0">Гривня</label>
+						<input id="currency1" type="radio" name="currency" value="dollar">
+						<label for="currency1">Доллар</label>
+					</div>
+					<input class="inputSize" type="number" name="balance" placeholder="Введите баланс" min="0" step="0.1"/>
+					<div class="expense">
+						<p>
+            			<input id="expens0" type="radio" value="purchase" name="categoryEx" checked>
+            			<label for="expens0">покупка</label>
+            			<input id="expens1" type="radio" value="communal" name="categoryEx">
+            			<label for="expens1">комунальные платежи</label>
+            			<input id="expens2" type="radio" value="services" name="categoryEx">
+            			<label for="expens2">услуги</label>
+            			</p>
+            			<p>
+            			<input id="expens3" type="radio" value="connection" name="categoryEx">
+            			<label for="expens3">связь, интернет</label>
+            			<input id="expens4" type="radio" value="taxi" name="categoryEx">
+            			<label for="expens4">такси</label>
+            			<input id="expens5" type="radio" value="tickets" name="categoryEx">
+            			<label for="expens5">билеты</label>
+            			<input id="expens6" type="radio" value="tickets" name="categoryEx">
+            			<label for="expens6">переводы</label>
+            			</p>
+        			</div>
+        			<input class="inputSize" type="text" name="tag" placeholder="Введите тэг" size="24" value="Нет тэга"/>
+					<input class="inputSize" type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+					<button type="submit">Создать кошелек</button>
+				</form>
+				<p>
+					{{#message}}
+						{{message}}
+					{{/message}}
+				</p>
+			</div>
+		</div>
+		
+		<footer>
+			<h1>Cashflow</h1>
+		</footer>
+	</body>
+</html>

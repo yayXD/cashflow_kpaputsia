@@ -1,0 +1,359 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+header {
+	background: #24292E;
+	color: white;
+	
+	min-height: 100px;
+	display: flex;
+	align-items: center;
+	padding: 10px 15px;
+}
+header h1 a{
+	text-decoration: none !important;
+	color: white !important;
+}
+header .logNreg {
+	margin-left: auto;
+}
+header .logNreg input {
+	margin: 5px;
+	padding: 2px;
+	background: white;
+	border-radius: 5px;
+	text-decoration: none !important;
+}
+
+
+
+.Home {
+	min-height: 800px;
+	padding: 50px 5%;
+}
+.Home h2{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.Home p{
+	margin-bottom: 40px;
+}
+
+
+
+.Login {
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.Login .logWindow {
+	min-width: 300px;
+	padding: 10px 30px;
+	
+	border: 1px black solid;
+	border-radius: 15px;
+	
+	text-align: center;
+}
+.Login .logWindow .zagLogin {
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: 30px;
+}
+.Login .logWindow input {
+	width: 97%;
+	height: 15px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.Login .logWindow button {
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+
+
+.Registration {
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.Registration .regWindow {
+	min-width: 300px;
+	padding: 10px 30px;
+	
+	border: 1px black solid;
+	border-radius: 15px;
+	
+	text-align: center;
+}
+.Registration .regWindow .zagReg {
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: 30px;
+}
+.Registration .regWindow input {
+	width: 97%;
+	height: 15px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.Registration .regWindow button {
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+
+
+.Profile {
+	min-height: 800px;
+	padding: 50px 5%;
+}
+.Profile h4 {
+	font-size: 40px;
+}
+.Profile h5 {
+	font-size: 30px;
+}
+.Profile .walets-log-create {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 5px;
+}
+.Profile .walets-log-create .createWalet {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 10px;
+	color: black;
+	text-decoration: none !important;
+}
+.Profile .walets-log-create .createWalet:hover {
+	border: 2px black solid;
+	border-radius: 5px;
+	padding: 4px;
+	margin-left: 10px;
+	color: black;
+	text-decoration: none !important;
+}
+.Profile .walets-log-create .transactWalet {
+	border: 1px black solid;
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: auto;
+	color: black;
+	text-decoration: none !important;
+}
+.Profile .walets-log-create .transactWalet:hover {
+	border: 2px black solid;
+	border-radius: 5px;
+	padding: 4px;
+	margin-left: auto;
+	color: black;
+	text-decoration: none !important;
+}
+.Profile .walets-table {
+	display: flex;
+	min-height: 130px;
+	border: 1px black solid;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+.Profile .walets-table .walet {
+	position: relative;
+	width: 25%;
+	border: 1px black solid;
+	padding: 5px;
+	margin: 0 5px;
+}
+.Profile .walets-table .walet .tagName {
+	position: absolute;
+	right: 2%;
+	top: 4%;
+}
+.Profile .walets-table .walet .balanceNcurrency {
+	position: absolute;
+	right: 2%;
+	bottom: 4%;
+}
+.Profile .historyTable {
+	width: 100%;
+	height: auto;
+}
+
+
+
+.CreateWalet {
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.CreateWalet .createWWindow {
+	min-width: 300px;
+	padding: 10px 30px;
+	
+	border: 1px black solid;
+	border-radius: 15px;
+	
+	text-align: center;
+}
+.CreateWalet .createWWindow .zagCreate {
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: 30px;
+}
+.CreateWalet .createWWindow p {
+	margin-bottom: 5px;
+}
+.CreateWalet .createWWindow .inputSize {
+	width: 97%;
+	height: 15px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.CreateWalet .createWWindow .curren {
+	margin-bottom: 10px;
+}
+.CreateWalet .createWWindow .curren #currency1 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense {
+	margin-bottom: 10px;
+}
+.CreateWalet .createWWindow .expense #expens1 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense #expens2 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense #expens3 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense #expens4 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense #expens5 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow .expense #expens6 {
+	margin-left: 10px;
+}
+.CreateWalet .createWWindow #loadIconImg {
+	width: 97%;
+	height: 20px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.CreateWalet .createWWindow button {
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+
+
+.Transaction {
+	min-height: 800px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.Transaction .transactionWindow {
+	min-width: 300px;
+	padding: 10px 30px;
+	
+	border: 1px black solid;
+	border-radius: 15px;
+	
+	text-align: center;
+}
+.Transaction .transactionWindow .zagTrans {
+	font-size: 30px;
+	margin: 0;
+	margin-bottom: 30px;
+}
+.Transaction .transactionWindow p {
+	margin-bottom: 5px;
+}
+.Transaction .transactionWindow .selectSize {
+	width: 97%;
+	height: 25px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.Transaction .transactionWindow .inputSize {
+	width: 97%;
+	height: 15px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.Transaction .transactionWindow .typ {
+	margin-bottom: 10px;
+}
+.Transaction .transactionWindow .typtyp {
+	margin-bottom: 10px;
+}
+.Transaction .transactionWindow .typ #type1 {
+	margin-left: 10px;
+}
+.Transaction .transactionWindow .income {
+	margin-bottom: 10px;
+}
+.Transaction .transactionWindow .income #income1 {
+	margin-left: 10px;
+}
+.Transaction .transactionWindow .expense {
+	margin-bottom: 10px;
+}
+.Transaction .transactionWindow .expense #expens1 {
+	margin-left: 10px;
+}
+.Transaction .transactionWindow .expense #expens2 {
+	margin-left: 10px;
+}
+.Transaction .transactionWindow #loadIconImg {
+	width: 97%;
+	height: 20px;
+	padding: 2px;
+	margin-bottom: 15px;
+}
+.Transaction .transactionWindow button {
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+
+
+footer {
+	background: #24292E;
+	color: white;
+	
+	min-height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+

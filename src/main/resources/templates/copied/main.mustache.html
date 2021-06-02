@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    <input type="submit" value="Выйти"/>
+</form>
+<!--<a href="/registration">Регистрация</a>-->
+<!--<a href ="/signin">Вход</a>-->
+<a href ="/wallet">Создать кошелек</a>
+<br/>
+<a href="/transaction">Cоздать трансакцию</a>
+<!--<div>Список сообщений</div>-->
+<br/>
+<label>Все ваши кошельки</label>
+<br/>
+<div>
+    <table border="1">
+    <tr>
+        <th>Имя</th>
+        <th>Баланс</th>
+        <th>Валюта</th>
+        <th>Номер карты</th>
+        <th>Категория</th>
+        <th>Тэг</th>
+    </tr>
+        {{#wallets}}
+            <tr>
+<!--            <div>-->
+                <td>{{name}}</td>
+                <td>{{balance}}</td>
+                <td>{{currencyNames.curName}}</td>
+                <td><a href="/main/{{itemNumber}}">{{itemNumber}}</a></td>
+                <td>{{category.categoryName}}</td>
+                <td>{{tag.tagName}}</td>
+            </tr>
+<!--            </div>-->
+        {{/wallets}}
+    </table>
+</div>
+<br/>
+<label>Выберите номер карты для получения списка трансакций по ней</label>
+<br/>
+<!--<form action="/main" method="post">-->
+<!--    <input type="number" name="walletNumber" placeholder="Введите номер кошелька получателя" min="0" max="20000000"/>-->
+<!--<br/>-->
+<!--    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
+<!--    <button type="submit">Найти</button>-->
+<!--</form>-->
+<div>
+    <table border="1">
+        <tr>
+            <th>Имя кошелька</th>
+            <th>Валюта</th>
+            <th>Сумма перевода</th>
+            <th>Номер карты получателя</th>
+            <th>Тип перевода</th>
+            <th>Категория</th>
+            <th>Тэг</th>
+            <th>Дата</th>
+            <th>Описание</th>
+        </tr>
+        {{#trans}}
+            <tr>
+                <!--            <div>-->
+                <td>{{walletName.name}}</td>
+                <td>{{walletName.currencyNames.curName}}</td>
+                <td>{{spending}}</td>
+                <td>{{receiverNumber}}</td>
+                <td>{{type}}</td>
+                <td>{{walletName.category.categoryName}}</td>
+                <td>{{walletName.tag.tagName}}</td>
+                <td>{{date}}</td>
+                <td>{{description}}</td>
+            </tr>
+            <!--            </div>-->
+        {{/trans}}
+    </table>
+</div>
+<!--<form action="/main/export" method="post">-->
+<!--&lt;!&ndash;    <input type="number" name="walletNumber" placeholder="Введите номер кошелька получателя" min="0" max="20000000"/>&ndash;&gt;-->
+<!--    <br/>-->
+<!--    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
+<!--    <button type="submit">Экспортировать данные в файл</button>-->
+<!--</form>-->
+{{#walletId}}
+    <a href="/main/export/{{walletId}}">Экспортировать данные кошелька в файл</a>
+{{/walletId}}
+<br/>
+{{#walletId}}
+    <a href="/main/deleteAllTransactions/{{walletId}}">Удалить трансакцию</a>
+{{/walletId}}
+<br/>
+<a href="/main/showAllTransactions">Показать трансакции по всем кошелькам</a>
+
+</body>
+</html>

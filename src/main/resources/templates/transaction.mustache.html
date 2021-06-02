@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Cashflow</title>
+		<meta name="description=" content="Cashflow">
+		<style>
+        		    * {
+                    	padding: 0;
+                    	margin: 0;
+                    }
+
+                    img {
+                    	width: 100%;
+                    	height: auto;
+                    }
+
+                    h1 {
+                    	font-size: 50px;
+                    }
+
+                    header {
+                    	background: #24292E;
+                    	color: white;
+
+                    	min-height: 100px;
+                    	display: flex;
+                    	align-items: center;
+                    	padding: 10px 15px;
+                    }
+                    header h1 a{
+                    	text-decoration: none !important;
+                    	color: white !important;
+                    }
+                    header .logNreg {
+                    	margin-left: auto;
+                    }
+                    header .logNreg input {
+                    	margin: 5px;
+                    	padding: 2px;
+                    	background: white;
+                    	border-radius: 5px;
+                    	text-decoration: none !important;
+                    }
+
+                    .Transaction {
+                    	min-height: 800px;
+                    	display: flex;
+                    	align-items: center;
+                    	justify-content: center;
+                    }
+                    .Transaction .transactionWindow {
+                    	min-width: 300px;
+                    	padding: 10px 30px;
+
+                    	border: 1px black solid;
+                    	border-radius: 15px;
+
+                    	text-align: center;
+                    }
+                    .Transaction .transactionWindow .zagTrans {
+                    	font-size: 30px;
+                    	margin: 0;
+                    	margin-bottom: 30px;
+                    }
+                    .Transaction .transactionWindow p {
+                    	margin-bottom: 5px;
+                    }
+                    .Transaction .transactionWindow .selectSize {
+                    	width: 97%;
+                    	height: 25px;
+                    	padding: 2px;
+                    	margin-bottom: 15px;
+                    }
+                    .Transaction .transactionWindow .inputSize {
+                    	width: 97%;
+                    	height: 15px;
+                    	padding: 2px;
+                    	margin-bottom: 15px;
+                    }
+                    .Transaction .transactionWindow .typ {
+                    	margin-bottom: 10px;
+                    }
+                    .Transaction .transactionWindow .typtyp {
+                    	margin-bottom: 10px;
+                    }
+                    .Transaction .transactionWindow .typ #type1 {
+                    	margin-left: 10px;
+                    }
+                    .Transaction .transactionWindow .income {
+                    	margin-bottom: 10px;
+                    }
+                    .Transaction .transactionWindow .income #income1 {
+                    	margin-left: 10px;
+                    }
+                    .Transaction .transactionWindow .expense {
+                    	margin-bottom: 10px;
+                    }
+                    .Transaction .transactionWindow .expense #expens1 {
+                    	margin-left: 10px;
+                    }
+                    .Transaction .transactionWindow .expense #expens2 {
+                    	margin-left: 10px;
+                    }
+                    .Transaction .transactionWindow #loadIconImg {
+                    	width: 97%;
+                    	height: 20px;
+                    	padding: 2px;
+                    	margin-bottom: 15px;
+                    }
+                    .Transaction .transactionWindow button {
+                    	width: 100%;
+                    	height: 30px;
+                    	margin-top: 30px;
+                    	margin-bottom: 10px;
+                    }
+
+                    footer {
+                    	background: #24292E;
+                    	color: white;
+
+                    	min-height: 100px;
+                    	display: flex;
+                    	align-items: center;
+                    	justify-content: center;
+                    }
+        		</style>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/greeting">Cashflow</a></h1>
+			<div class="logNreg">
+				<form action="/logout" method="post">
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+					<input type="submit" value="Выйти"/>
+				</form>
+			</div>
+		</header>
+		
+		<div class="Transaction">
+			<div class="transactionWindow">
+				<p class="zagTrans">Трансакция</p>
+				
+				<form method="post" id="myForm">
+					<p>
+						<select class="selectSize" id="type" name="tag">
+        					{{#wall}}
+            					<option value="{{name}}">{{name}} :: баланс  {{balance}} {{currencyNames.curName}} </option>
+        					{{/wall}}
+        				</select>
+        			</p>
+					<p>Выберите тип трансакции</p>
+					<!--<div class="typ">
+						<div class="typtyp">
+							<input id="type0" type="radio"  name="type" value="income" onclick="changeDisplay()">
+							<label for="type0">Доход</label>
+							<input id="type1" type="radio" name="type" value="expense" onclick="changeDisplay()">
+							<label for="type1">Расход</label>
+						</div>
+						
+						<p class="zagCat" style="display: none;">Выберите категорию</p>
+						<div class="income" style="display: none;">
+							<input id="incom0" type="radio" name="categoryIn">
+							<label for="incom0">Зарплата</label>
+							<input id="income1" type="radio" name="categoryIn">
+							<label for="income1">Кешбек</label>
+						</div>
+						
+						<div class="expense" style="display: none;">
+							<input id="expens0" type="radio" name="categoryEx">
+							<label for="expens0">Покупка</label>
+							<input id="expens1" type="radio" name="categoryEx">
+							<label for="expens1">Комунальные платежи</label>
+							<input id="expens2" type="radio" name="categoryEx">
+							<label for="expens2">Услуги</label>
+						</div>
+					</div>-->
+					<input class="inputSize" type="number" name="spending" placeholder="Введите сумму" min="0" max="2000000" step="0.1"/>
+					<input class="inputSize" type="number" name="receiverNumber" placeholder="Введите номер кошелька получателя" min="0" value="0"/>
+					<input class="inputSize" type="text" name="description" placeholder="Напишите комментарий"/>
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+					<button type="submit">Создать трансакцию</button>
+					<p><a href="/main">Вернутся в профиль</a></p>
+				</form>
+				{{#message}}
+    				{{message}}
+				{{/message}}
+			</div>
+		</div>
+		
+		<footer>
+			<h1>Cashflow</h1>
+		</footer>
+	</body>
+	<script>
+	    function changeDisplay() {
+
+        	var radioT0 = document.getElementById("type0");
+        	var radioT1 = document.getElementById("type1");
+        	var zagCat = document.getElementsByClassName("zagCat")[0];
+        	var inc = document.getElementsByClassName("income")[0];
+        	var exp = document.getElementsByClassName("expense")[0];
+
+        	if(radioT0.checked) {
+        		zagCat.style.display = "";
+        		inc.style.display = "";
+        		exp.style.display = "none";
+        	} else if(radioT1.checked) {
+        		zagCat.style.display = "";
+        		inc.style.display = "none";
+        		exp.style.display = "";
+        	}
+        }
+	</script>
+</html>

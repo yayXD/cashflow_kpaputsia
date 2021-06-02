@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Cashflow</title>
+		<meta name="description=" content="Cashflow">
+		<style>
+		    * {
+            	padding: 0;
+            	margin: 0;
+            }
+
+            img {
+            	width: 100%;
+            	height: auto;
+            }
+
+            h1 {
+            	font-size: 50px;
+            }
+
+            header {
+            	background: #24292E;
+            	color: white;
+
+            	min-height: 100px;
+            	display: flex;
+            	align-items: center;
+            	padding: 10px 15px;
+            }
+            header h1 a{
+            	text-decoration: none !important;
+            	color: white !important;
+            }
+            header .logNreg {
+            	margin-left: auto;
+            }
+            header .logNreg input {
+            	margin: 5px;
+            	padding: 2px;
+            	background: white;
+            	border-radius: 5px;
+            	text-decoration: none !important;
+            }
+
+            .Profile {
+            	min-height: 800px;
+            	padding: 50px 5%;
+            }
+            .Profile h4 {
+            	font-size: 40px;
+            }
+            .Profile h5 {
+            	font-size: 30px;
+            }
+            .Profile .walets-log-create {
+            	display: flex;
+            	align-items: center;
+            	justify-content: center;
+            	margin-bottom: 5px;
+            }
+            .Profile .walets-log-create .createWalet {
+            	border: 1px black solid;
+            	border-radius: 5px;
+            	padding: 5px;
+            	margin-left: 10px;
+            	color: black;
+            	text-decoration: none !important;
+            }
+            .Profile .walets-log-create .createWalet:hover {
+            	border: 2px black solid;
+            	border-radius: 5px;
+            	padding: 4px;
+            	margin-left: 10px;
+            	color: black;
+            	text-decoration: none !important;
+            }
+            .Profile .walets-log-create .transactWalet {
+            	border: 1px black solid;
+            	border-radius: 5px;
+            	padding: 5px;
+            	margin-left: auto;
+            	color: black;
+            	text-decoration: none !important;
+            }
+            .Profile .walets-log-create .transactWalet:hover {
+            	border: 2px black solid;
+            	border-radius: 5px;
+            	padding: 4px;
+            	margin-left: auto;
+            	color: black;
+            	text-decoration: none !important;
+            }
+            .Profile .walets-table {
+            	display: flex;
+            	min-height: 130px;
+            	border: 1px black solid;
+            	padding: 5px;
+            	margin-bottom: 20px;
+            }
+            .Profile .walets-table .walet {
+            	position: relative;
+            	width: 25%;
+            	border: 1px black solid;
+            	padding: 5px;
+            	margin: 0 5px;
+            }
+            .Profile .walets-table .walet .tagName {
+            	position: absolute;
+            	right: 2%;
+            	top: 4%;
+            }
+            .Profile .walets-table .walet .balanceNcurrency {
+            	position: absolute;
+            	right: 2%;
+            	bottom: 4%;
+            }
+            .Profile .historyTable {
+            	width: 100%;
+            	height: auto;
+            }
+
+            footer {
+            	background: #24292E;
+            	color: white;
+
+            	min-height: 100px;
+            	display: flex;
+            	align-items: center;
+            	justify-content: center;
+            }
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/greeting">Cashflow</a></h1>
+			<div class="logNreg">
+				<form action="/logout" method="post">
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+					<input type="submit" value="Выйти"/>
+				</form>
+			</div>
+		</header>
+		
+		<div class="Profile">
+			<div class="walets-log-create">
+				<h4>Ваши кошельки</h4>
+				<a href="/transaction" class="transactWalet">Выполнить действие с кошельком</a>
+				<a href="/wallet" class="createWalet">Создать кошелек</a>
+			</div>
+			<div class="walets-table">
+				{{#wallets}}
+					<div class="walet">
+						<p>{{name}}</p>
+						<p>{{category.categoryName}}</p>
+						<p class="tagName">
+							<span>{{tag.tagName}}</span>
+						</p>
+						<p><a href="/main/{{itemNumber}}">{{itemNumber}}</a></p>
+						<p class="balanceNcurrency">
+							<span>{{balance}}</span>
+							<span>{{currencyNames.curName}}</span>
+						</p>
+					</div>
+				{{/wallets}}
+			</div>
+			<h5>Выберите номер карты для получения списка трансакций по ней</h5>
+			<table border="1" class="historyTable">
+        		<tr>
+        		    <th>Имя кошелька</th>
+        		    <th>Валюта</th>
+        		    <th>Сумма перевода</th>
+        		    <th>Номер карты получателя</th>
+        		    <th>Тип перевода</th>
+         		    <th>Категория</th>
+        		    <th>Тэг</th>
+        		    <th>Дата</th>
+        		    <th>Описание</th>
+        		</tr>
+        		{{#trans}}
+        		    <tr>
+        		        <td>{{walletName.name}}</td>
+        		        <td>{{walletName.currencyNames.curName}}</td>
+        		        <td>{{spending}}</td>
+        		        <td>{{receiverNumber}}</td>
+        		        <td>{{type}}</td>
+        		        <td>{{walletName.category.categoryName}}</td>
+        		        <td>{{walletName.tag.tagName}}</td>
+        		        <td>{{date}}</td>
+        		        <td>{{description}}</td>
+        		    </tr>
+    		    {{/trans}}
+    		</table>
+    		<a href="/main/showAllTransactions">Показать трансакции по всем кошелькам</a>
+    		{{#walletId}}
+    			<p><a href="/main/export/{{walletId}}">Экспортировать данные кошелька в файл</a></p>
+			{{/walletId}}
+			{{#walletId}}
+    			<p><a href="/main/deleteAllTransactions/{{walletId}}">Удалить трансакцию</a></p>
+			{{/walletId}}
+		</div>
+		
+		<footer>
+			<h1>Cashflow</h1>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Cashflow</title>
+		<meta name="description=" content="Cashflow">
+		<style>
+		    * {
+            	padding: 0;
+            	margin: 0;
+            }
+
+            img {
+            	width: 100%;
+            	height: auto;
+            }
+
+            h1 {
+            	font-size: 50px;
+            }
+
+            header {
+            	background: #24292E;
+            	color: white;
+
+            	min-height: 100px;
+            	display: flex;
+            	align-items: center;
+            	padding: 10px 15px;
+            }
+            header h1 a{
+            	text-decoration: none !important;
+            	color: white !important;
+            }
+            header .logNreg {
+            	margin-left: auto;
+            }
+            header .logNreg input {
+            	margin: 5px;
+            	padding: 2px;
+            	background: white;
+            	border-radius: 5px;
+            	text-decoration: none !important;
+            }
+
+
+
+            .Home {
+            	min-height: 800px;
+            	padding: 50px 5%;
+            }
+            .Home h2{
+            	text-align: center;
+            	margin-bottom: 10px;
+            }
+            .Home p{
+            	margin-bottom: 40px;
+            }
+
+            footer {
+            	background: #24292E;
+            	color: white;
+
+            	min-height: 100px;
+            	display: flex;
+            	align-items: center;
+            	justify-content: center;
+            }
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/greeting">Cashflow</a></h1>
+			<div class="logNreg">
+				<form action="/logout" method="post">
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+					<input type="submit" value="Выйти"/>
+				</form>
+			</div>
+		</header>
+		
+		<div class="Home">
+			<p><a href="/registration">Регистрация</a></p>
+			<p><a href ="/login">Вход</a></p>
+			<p><a href ="/main">Перейти к профилю</a></p>
+			<p><a href ="/wallet">Создать кошелек</a></p>
+			<p><a href="/transaction">Выполнить трансакцию</a></p>
+		</div>
+		
+		<footer>
+			<h1>Cashflow</h1>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<body>
+<div>
+    <form method="post" id="myForm">
+        <input type="text" name="name" placeholder="Введите имя кошелька"/>
+        <br/>
+        <label>Выберите валюту</label>
+        <div class="curren">
+            <input id="currency0" type="radio"  name="currency" value="gryvna" checked>
+            <label for="currency0">гривня</label>
+            <input id="currency1" type="radio" name="currency" value="dollar">
+            <label for="currency1">доллар</label>
+        </div>
+        <input type="number" name="balance" placeholder="Введите баланс" min="0" max="2000000" step="0.1"/>
+        <br/>
+        <label>Выберите категорию</label>
+        <div class="expense">
+            <input id="expens0" type="radio" value="purchase" name="categoryEx" checked>
+            <label for="expens0">покупка</label>
+            <input id="expens1" type="radio" value="communal" name="categoryEx">
+            <label for="expens1">комунальные платежи</label>
+            <input id="expens2" type="radio" value="services" name="categoryEx">
+            <label for="expens2">услуги</label>
+            <input id="expens3" type="radio" value="connection" name="categoryEx">
+            <label for="expens3">связь, интернет</label>
+            <input id="expen4" type="radio" value="taxi" name="categoryEx">
+            <label for="expens4">такси</label>
+            <input id="expens5" type="radio" value="tickets" name="categoryEx">
+            <label for="expens5">билеты</label>
+            <input id="expens6" type="radio" value="tickets" name="categoryEx">
+            <label for="expens6">переводы</label>
+        </div>
+        <br/>
+        <input type="text" name="tag" placeholder="Введите тэг"/>
+        <br/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Создать кошелек</button>
+    </form>
+</div>
+{{#message}}
+    {{message}}
+{{/message}}
+<br/>
+<a href="/greeting">Вернуться</a>
+<!--<script >-->
+<!--    function getLogin() {-->
+<!--        let ownerLogin = "";-->
+<!--            ownerLogin = sessionStorage.getItem('login');-->
+<!--            // ownerLogin = "1";-->
+<!--        inp2 = document.createElement( 'input' );-->
+<!--        inp2.type = 'text';-->
+<!--        inp2.name = "ownerLogin";-->
+<!--        inp2.value = ownerLogin;-->
+<!--        inp2.id = 'input_2';-->
+<!--        document.getElementById( 'myForm' ).appendChild( inp2 );-->
+<!--    }-->
+
+<!--</script>-->
+
+</body>
+</html>
